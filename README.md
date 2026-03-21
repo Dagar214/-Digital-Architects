@@ -79,5 +79,5 @@ Language: Python 3.11
 
 
 <p align="center">
-Developed with ❤️ by <b>Team Digital Architects</b> for Major Project 2026
+Developed with by <b>Team Digital Architects</b>
 </p>
