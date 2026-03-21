@@ -48,13 +48,7 @@ Student-Performance-System/
 ├── .gitignore               # 🚫 Files to be ignored by Git
 └── README.md                # 📝 Project Documentation
 
-#🛠️ Tech Stack
+## 🛠️ **Tech Stack**
 
-Component,Technology
-Language,Python 3.11
-ML Libraries,"Scikit-learn (Random Forest), Pandas, NumPy"
-Web Framework,Streamlit
-Visualization,Plotly & Seaborn
-Database,SQLite3
 
 
