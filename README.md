@@ -1,8 +1,10 @@
 # -Digital-Architects
 Our team name is Digital Architects and we are going to design a Major Project.
 
+# 🎓 Student Performance Prediction & Early Warning System
+
 <p align="center">
-  <h1 align="center">🎓Student Performance Prediction & Early Warning System</h1>
+  <h1 align="center">AI-Scholar: Predict & Prevail</h1>
   <p align="center">
     <strong>An Intelligent ML-powered system to identify at-risk students and provide actionable academic insights.</strong>
   </p>
@@ -42,51 +44,10 @@ Student-Performance-System/
 │
 ├── models/                  # 🧠 Pre-trained ML models (.pkl files)
 ├── Dataset.csv              # 📊 Sample student data for training/testing
-├── app.py                   # 🖥️ Main Streamlit application (Frontend + Backend)
+├── app.py                   # 🖥️ Main Streamlit application
 ├── requirements.txt         # 📦 Python dependencies
 ├── users.db                 # 🗄️ Local SQLite database for credentials
-├── .gitignore               # 🚫 Files to be ignored by Git (venv, pycache)
+├── .gitignore               # 🚫 Files to be ignored by Git
 └── README.md                # 📝 Project Documentation
 
 
-🛠️ Tech Stack
-Language: Python 3.11
-
-1.ML Libraries: Scikit-learn (Random Forest), Pandas, NumPy
-
-2.Web Framework: Streamlit (For a fast, interactive UI)
-
-3.Visualization: Plotly & Seaborn (For professional charts)
-
-4.Database: SQLite3 (For user management and role-based access)
-
-🚀 Getting Started
-1. Clone the Repo: git clone [https://github.com/Dagar214/-Digital-Architects.git](https://github.com/Dagar214/-Digital-Architects.git)
-
-2.Install Dependencies: pip install -r requirements.txt
-
-3.Run the App: streamlit run app.py
-
-
-🔍 How it Works (Logic Flow)
-1.Data Ingestion: The system takes inputs like Attendance, Previous GPA, Study Hours, and Extracurricular activities.
-
-2.ML Processing: The pre-trained model analyzes the features against historical patterns.
-
-3.Classification: Output is generated as a 'Warning Level'.
-
-4.Actionable Insights: Mentors see a list of students who need immediate attention.
-
----
-
-<p align="center">
-  Developed with ❤️ by <b>Team Digital Architects</b> for Major Project 2026
-</p>
-
-<p align="center">
-  <b>Team Members:</b><br>
-  👤 <b>Dev Dagar</b> (Team Lead) - [Roll No.: 2301730073]<br>
-  👤 <b>Shubhi Tyagi</b> - [Roll No.: 2301730132]<br>
-  👤 <b>Aryan Sharma</b> - [Roll No.: 2301730119]<br>
-  👤 <b>Dev Sood</b> - [Roll No.: 2301730121]
-</p>
