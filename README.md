@@ -2,7 +2,7 @@
 Our team name is Digital Architects and we are going to design a Major Project.
 
 <p align="center">
-  <h1 align="center">🎓 AI-Scholar: Student Performance Prediction & Early Warning System</h1>
+  <h1 align="center">🎓Student Performance Prediction & Early Warning System</h1>
   <p align="center">
     <strong>An Intelligent ML-powered system to identify at-risk students and provide actionable academic insights.</strong>
   </p>
