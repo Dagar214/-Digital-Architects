@@ -78,6 +78,15 @@ Language: Python 3.11
 4.Actionable Insights: Mentors see a list of students who need immediate attention.
 
 
+---
 <p align="center">
-Developed with by <b>Team Digital Architects</b>
+  Developed with ❤️ by <b>Team Digital Architects</b> for Major Project 2026
+</p>
+
+<p align="center">
+  <b>Team Members:</b><br>
+  👤 <b>Dev Dagar</b> (Team Lead) - [Roll No.: 2301730073]<br>
+  👤 <b>Shubhi Tyagi</b> - [Roll No.: 2301730132]<br>
+  👤 <b>Aryan Sharma</b> - [Roll No.: 2301730119]<br>
+  👤 <b>Dev Sood</b> - [Roll No.: 2301730121]
 </p>
