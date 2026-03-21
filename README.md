@@ -77,8 +77,8 @@ Language: Python 3.11
 
 4.Actionable Insights: Mentors see a list of students who need immediate attention.
 
-
 ---
+
 <p align="center">
   Developed with ❤️ by <b>Team Digital Architects</b> for Major Project 2026
 </p>
