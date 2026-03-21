@@ -48,7 +48,6 @@ Student-Performance-System/
 ├── .gitignore               # 🚫 Files to be ignored by Git
 └── README.md                # 📝 Project Documentation
 
-## 🛠️ **Tech Stack**
 
 
 
