@@ -2,7 +2,11 @@
 Our team name is Digital Architects and we are going to design a Major Project.
 
 <p align="center">
+<<<<<<< HEAD
   <h1 align="center">🎓Student Performance Prediction & Early Warning System</h1>
+=======
+  <h1 align="center">🎓 Student Performance Prediction & Early Warning System</h1>
+>>>>>>> 955c063 (Updated README layout and table)
   <p align="center">
     <strong>An Intelligent ML-powered system to identify at-risk students and provide actionable academic insights.</strong>
   </p>
@@ -37,6 +41,17 @@ Educational institutions often struggle to identify students who are likely to s
 
 ## 📁 Project Structure
 
+```text
+Student-Performance-System/
+│
+├── models/                  # 🧠 Pre-trained ML models (.pkl files)
+├── Dataset.csv              # 📊 Sample student data for training/testing
+├── app.py                   # 🖥️ Main Streamlit application (Frontend + Backend)
+├── requirements.txt         # 📦 Python dependencies
+├── users.db                 # 🗄️ Local SQLite database for credentials
+├── .gitignore               # 🚫 Files to be ignored by Git (venv, pycache)
+└── README.md                # 📝 Project Documentation
+```
 
 ## 🛠️ Tech Stack
 
@@ -48,3 +63,43 @@ Educational institutions often struggle to identify students who are likely to s
 | **Visualization** | Plotly & Seaborn |
 | **Database** | SQLite3 |
 
+## 🚀 Getting Started
+
+1. Clone the Repo: git clone [https://github.com/Dagar214/-Digital-Architects.git](https://github.com/Dagar214/-Digital-Architects.git)
+
+2. Install Dependencies: pip install -r requirements.txt
+
+3. Run the App: streamlit run app.py
+
+## 🔍 How it Works (Logic Flow)
+
+1. Data Ingestion: The system takes inputs like Attendance, Previous GPA, Study Hours, and Extracurricular activities.
+
+2. ML Processing: The pre-trained model analyzes the features against historical patterns.
+
+3. Classification: Output is generated as a 'Warning Level' (Low, Medium, High).
+
+4. Actionable Insights: Mentors see a list of students who need immediate attention
+
+---
+<p align="center">
+  <img src="https://img.shields.io/badge/Developed%20with%20❤️%20by-Team%20Digital%20Architects-orange?style=for-the-badge" alt="Team Digital Architects"/>
+  <br>
+  <sub><b>Major Project 2026 • AI-Scholar System</b></sub>
+</p>
+
+<p align="center">
+<b>Team Members:</b>
+
+
+👤 <b>Dev Dagar</b> (Team Lead) - [Roll No.: 2301730073]
+
+
+👤 <b>Shubhi Tyagi</b> - [Roll No.: 2301730132]
+
+
+👤 <b>Aryan Sharma</b> - [Roll No.: 2301730119]
+
+
+👤 <b>Dev Sood</b> - [Roll No.: 2301730121]
+</p>
