@@ -37,17 +37,6 @@ Educational institutions often struggle to identify students who are likely to s
 
 ## 📁 Project Structure
 
-```text
-Student-Performance-System/
-│
-├── models/                  # 🧠 Pre-trained ML models (.pkl files)
-├── Dataset.csv              # 📊 Sample student data for training/testing
-├── app.py                   # 🖥️ Main Streamlit application
-├── requirements.txt         # 📦 Python dependencies
-├── users.db                 # 🗄️ Local SQLite database for credentials
-├── .gitignore               # 🚫 Files to be ignored by Git
-└── README.md                # 📝 Project Documentation
-
 
 ## 🛠️ Tech Stack
 
