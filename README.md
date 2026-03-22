@@ -82,7 +82,6 @@ Student-Performance-System/
 4. Actionable Insights: Mentors see a list of students who need immediate attention
 
 ---
----
 
 <p align="center">
   <img src="https://img.shields.io/badge/Developed%20with%20❤️%20by-Team%20Digital%20Architects-orange?style=for-the-badge" alt="Team Digital Architects"/>
@@ -90,14 +89,16 @@ Student-Performance-System/
   <sub><b>Major Project 2026 • AI-Scholar System</b></sub>
 </p>
 
+## 👥 Team Members
+
 <div align="center">
 
 | Role | Name | University Roll No. |
-| :--- | :--- | :--- |
-| 👑 **Team Lead** | **Dev Dagar** | `2301730073` |
-| 👩‍💻 **Member** | **Shubhi Tyagi** | `2301730132` |
-| 👨‍💻 **Member** | **Aryan Sharma** | `2301730119` |
-| 👨‍💻 **Member** | **Dev Sood** | `2301730121` |
+|------|------|--------------------|
+| 👑 Team Lead | Dev Dagar | 2301730073 |
+| 👩‍💻 Member | Shubhi Tyagi | 2301730132 |
+| 👨‍💻 Member | Aryan Sharma | 2301730119 |
+| 👨‍💻 Member | Dev Sood | 2301730121 |
 
 </div>
 
