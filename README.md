@@ -2,7 +2,7 @@
 Our team name is Digital Architects and we are going to design a Major Project.
 
 <p align="center">
-  <h1 align="center">🎓 AI-Scholar: Student Performance Prediction & Early Warning System</h1>
+  <h1 align="center">🎓 Student Performance Prediction & Early Warning System</h1>
   <p align="center">
     <strong>An Intelligent ML-powered system to identify at-risk students and provide actionable academic insights.</strong>
   </p>
@@ -47,37 +47,52 @@ Student-Performance-System/
 ├── users.db                 # 🗄️ Local SQLite database for credentials
 ├── .gitignore               # 🚫 Files to be ignored by Git (venv, pycache)
 └── README.md                # 📝 Project Documentation
+```
 
+## 🛠️ Tech Stack
 
-🛠️ Tech Stack
-Language: Python 3.11
+| Component | Technology |
+|-----------|------------|
+| **Language** | Python 3.11 |
+| **ML Libraries** | Scikit-learn (Random Forest), Pandas, NumPy |
+| **Web Framework** | Streamlit |
+| **Visualization** | Plotly & Seaborn |
+| **Database** | SQLite3 |
 
-1.ML Libraries: Scikit-learn (Random Forest), Pandas, NumPy
+## 🚀 Getting Started
 
-2.Web Framework: Streamlit (For a fast, interactive UI)
-
-3.Visualization: Plotly & Seaborn (For professional charts)
-
-4.Database: SQLite3 (For user management and role-based access)
-
-🚀 Getting Started
 1. Clone the Repo: git clone [https://github.com/Dagar214/-Digital-Architects.git](https://github.com/Dagar214/-Digital-Architects.git)
 
-2.Install Dependencies: pip install -r requirements.txt
+2. Install Dependencies: pip install -r requirements.txt
 
-3.Run the App: streamlit run app.py
+3. Run the App: streamlit run app.py
 
+## 🔍 How it Works (Logic Flow)
 
-🔍 How it Works (Logic Flow)
-1.Data Ingestion: The system takes inputs like Attendance, Previous GPA, Study Hours, and Extracurricular activities.
+1. Data Ingestion: The system takes inputs like Attendance, Previous GPA, Study Hours, and Extracurricular activities.
 
-2.ML Processing: The pre-trained model analyzes the features against historical patterns.
+2. ML Processing: The pre-trained model analyzes the features against historical patterns.
 
-3.Classification: Output is generated as a 'Warning Level'.
+3. Classification: Output is generated as a 'Warning Level' (Low, Medium, High).
 
-4.Actionable Insights: Mentors see a list of students who need immediate attention.
-
+4. Actionable Insights: Mentors see a list of students who need immediate attention
 
 <p align="center">
 Developed with ❤️ by <b>Team Digital Architects</b> for Major Project 2026
+</p>
+
+<p align="center">
+<b>Team Members:</b>
+
+
+👤 <b>Dev Dagar</b> (Team Lead) - [Roll No.: 2301730073]
+
+
+👤 <b>Shubhi Tyagi</b> - [Roll No.: 2301730132]
+
+
+👤 <b>Aryan Sharma</b> - [Roll No.: 2301730119]
+
+
+👤 <b>Dev Sood</b> - [Roll No.: 2301730121]
 </p>
