@@ -94,5 +94,5 @@ Developed with ❤️ by <b>Team Digital Architects</b> for Major Project 2026
 👤 <b>Aryan Sharma</b> - [Roll No.: 2301730119]
 
 
-👤 <b>Dev Sood</b> - [Roll No.: 2301730131]
+👤 <b>Dev Sood</b> - [Roll No.: 2301730121]
 </p>
