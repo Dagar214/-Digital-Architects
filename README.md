@@ -88,7 +88,7 @@ Developed with ❤️ by <b>Team Digital Architects</b> for Major Project 2026
 👤 <b>Dev Dagar</b> (Team Lead) - [Roll No.: 2301730073]
 
 
-👤 <b>Shubhi Tyagi</b> - [Roll No.: 2301730133]
+👤 <b>Shubhi Tyagi</b> - [Roll No.: 2301730132]
 
 
 👤 <b>Aryan Sharma</b> - [Roll No.: 2301730119]
