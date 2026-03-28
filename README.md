@@ -91,7 +91,7 @@ Developed with ❤️ by <b>Team Digital Architects</b> for Major Project 2026
 👤 <b>Shubhi Tyagi</b> - [Roll No.: 2301730132]
 
 
-👤 <b>Aryan Sharma</b> - [Roll No.: 2301730119]
+👤 <b>Aryan Sharma</b> - [Roll No.: 2301730122]
 
 
 👤 <b>Dev Sood</b> - [Roll No.: 2301730121]
