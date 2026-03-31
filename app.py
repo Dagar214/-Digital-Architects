@@ -87,7 +87,6 @@ def main():
         .main { background-color: #ffffff; }
         .stButton>button { width: 100%; border-radius: 4px; background-color: #004a99; color: white; border: none; height: 3em; font-weight: 600; }
         
-        /* Fixed Alignment for Admin Delete Section */
         div[data-testid="column"]:nth-of-type(2) {
             display: flex;
             flex-direction: column;
@@ -168,6 +167,7 @@ def main():
             df, (model, metadata) = load_data(), load_assets()
             feature_cols = metadata['features']
 
+            # --- ADMIN SECTION (NO CHANGE) ---
             if user_role == "Admin":
                 st.title("🛡️ Administrative Command Center")
                 all_users = view_all_users()
@@ -179,7 +179,6 @@ def main():
                 s3.metric("Students", len(user_df[user_df['Role'] == 'Student']))
                 
                 tab1, tab2 = st.tabs(["👥 User Management", "⚙️ System Overview"])
-                
                 with tab1:
                     st.subheader("Manage User Access")
                     st.dataframe(user_df, use_container_width=True, hide_index=True)
@@ -188,55 +187,55 @@ def main():
                     user_to_del = col_del1.selectbox("Choose account to remove", [u[0] for u in all_users if u[0] != st.session_state['username']])
                     if col_del2.button("🚫 Confirm Delete", type="secondary"):
                         delete_user(user_to_del); st.success(f"User {user_to_del} removed."); time.sleep(1); st.rerun()
-                
                 with tab2:
                     st.subheader("System Role Distribution")
-                    # CHART COLORS: Professional palette for System Overview
-                    role_map = {'Admin': '#1F77B4', 'Mentor': '#D62728', 'Student': '#2CA02C'}
+                    role_map_admin = {'Admin': '#1F77B4', 'Mentor': '#D62728', 'Student': '#2CA02C'}
                     all_roles = ['Admin', 'Mentor', 'Student']
                     role_counts = user_df['Role'].value_counts().reindex(all_roles, fill_value=0).reset_index()
                     role_counts.columns = ['Role', 'Count']
-                    
-                    fig_roles = px.pie(role_counts, names='Role', values='Count', hole=0.5, 
-                                     color='Role', color_discrete_map=role_map)
-                    fig_roles.update_layout(showlegend=True)
+                    fig_roles = px.pie(role_counts, names='Role', values='Count', hole=0.5, color='Role', color_discrete_map=role_map_admin)
                     st.plotly_chart(fig_roles, use_container_width=True)
 
+            # --- MENTOR SECTION (UPDATED) ---
             if user_role in ["Admin", "Mentor"]:
                 st.title("Mentor Insight Dashboard")
                 g1, g2 = st.columns(2)
                 
-                # RISK CHART COLORS: Traffic Light System (Red/Orange/Green)
-                risk_map = {'High': '#FF4136', 'Medium': '#FF851B', 'Low': '#2ECC40'}
+                # Custom Color Map for Risks (Traffic-Light Logic)
+                risk_color_map = {'High': '#FF4136', 'Medium': '#FF851B', 'Low': '#2ECC40'}
+                
                 fig_risk = px.pie(df, names='Risk_Level', title='Academic Risk Distribution', hole=0.4,
-                                 color='Risk_Level', color_discrete_map=risk_map)
+                                 color='Risk_Level', color_discrete_map=risk_color_map)
                 g1.plotly_chart(fig_risk, use_container_width=True)
                 
-                g2.plotly_chart(px.scatter(df, x='Total_%', y='Predicted_GPA', color='Risk_Level', 
-                                         color_discrete_map=risk_map, title='Attendance vs Performance'), use_container_width=True)
+                fig_scatter = px.scatter(df, x='Total_%', y='Predicted_GPA', color='Risk_Level', 
+                                         color_discrete_map=risk_color_map, title='Attendance vs Performance Analysis')
+                g2.plotly_chart(fig_scatter, use_container_width=True)
                 
                 st.divider(); st.subheader("Student Database Records")
                 c1, c2 = st.columns([1, 2])
-                risk_f = c1.multiselect("Filter Risk", ['Low', 'Medium', 'High'], default=['High', 'Medium'])
-                search_n = c2.text_input("Search Student")
+                risk_f = c1.multiselect("Filter Risk Category", ['Low', 'Medium', 'High'], default=['High', 'Medium'])
+                search_n = c2.text_input("Search (Name or Roll Number)")
                 
                 filtered_df = df.copy() if not risk_f else df[df['Risk_Level'].isin(risk_f)]
                 if search_n: filtered_df = filtered_df[filtered_df['Student Name'].str.contains(search_n, case=False) | filtered_df['Rollno'].astype(str).str.contains(search_n)]
                 
+                # Adding S.No to Table
                 display_df = filtered_df[['Rollno', 'Student Name', 'Total_%', 'Risk_Level']].copy()
                 display_df.insert(0, 'S.No', range(1, 1 + len(display_df)))
                 
                 st.dataframe(display_df, use_container_width=True, hide_index=True)
                 
                 if not filtered_df.empty:
-                    st.divider(); selected = st.selectbox("Detailed Profile Review", filtered_df['Student Name'].unique())
+                    st.divider(); selected = st.selectbox("Select Profile for Detailed Review", filtered_df['Student Name'].unique())
                     s_row = df[df['Student Name'] == selected].iloc[0]
                     info_col, action_col = st.columns([2, 1])
                     sub_data = {col.split('_')[0]: s_row[col] for col in feature_cols}
-                    info_col.plotly_chart(px.bar(x=list(sub_data.keys()), y=list(sub_data.values()), title=f"Academic Breakdown: {selected}"), use_container_width=True)
+                    info_col.plotly_chart(px.bar(x=list(sub_data.keys()), y=list(sub_data.values()), title=f"Subject-wise Scores: {selected}", color_discrete_sequence=['#004a99']), use_container_width=True)
                     action_col.markdown("### Communication Portal")
-                    if action_col.button("📧 Send Alert to Guardian"): send_notification(selected, s_row['Risk_Level'])
+                    if action_col.button("📧 Send Warning Alert"): send_notification(selected, s_row['Risk_Level'])
 
+            # --- STUDENT SECTION (NO CHANGE) ---
             elif user_role == "Student":
                 st.title(f"Student Portal: {st.session_state['username']}")
                 student_row = df[df['Rollno'].astype(str) == st.session_state['roll_no']] if st.session_state['roll_no'] else df[df['Student Name'].str.contains(st.session_state['username'], case=False)]
