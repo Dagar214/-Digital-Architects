@@ -74,13 +74,22 @@ def send_notification(student_name, risk_level):
         status.update(label=" Alert Dispatched Successfully!", state="complete", expanded=False)
     st.toast(f"Official Log: Notification sent to {student_name}'s guardian.", icon="📩")
 
+# --- UPDATED LEARNER CATEGORIZATION LOGIC ---
+def get_learner_category(score):
+    if score > 80:
+        return " Advanced Learner"
+    elif 51 <= score <= 80:
+        return " Average Learner"
+    else:
+        return " Slow Learner"
+
 # --- CONFIGURATION ---
 ADMIN_SECRET_KEY = "ADMIN123"
 MENTOR_SECRET_KEY = "MENTOR456"
 
 # --- 2. USER INTERFACE ---
 def main():
-    st.set_page_config(page_title="AI-Scholar | Performance Dashboard", layout="wide")
+    st.set_page_config(page_title="AI-Based Student Performance Prediction & Early Warning System | Performance Dashboard", layout="wide")
     create_usertable()
 
     st.markdown("""
@@ -112,7 +121,7 @@ def main():
     if not st.session_state['logged_in']:
         app_mode = st.sidebar.radio("Navigation", ["Project Overview", "Login / Register"])
         if app_mode == "Project Overview":
-            st.markdown('<div class="hero-section"><h1>🎓 AI-Scholar Insights</h1><p>Empowering Educators with Predictive Intelligence & Early Intervention Systems</p></div>', unsafe_allow_html=True)
+            st.markdown('<div class="hero-section"><h1>🎓 AI-Based Student Performance Prediction & Early Warning System</h1><p>Empowering Educators with Predictive Intelligence & Early Intervention Systems</p></div>', unsafe_allow_html=True)
             c1, c2, c3 = st.columns(3)
             with c1: st.markdown('<div class="feature-card"><h3>🧠 Predictive Analytics</h3><p>Leveraging <b>Random Forest ML</b> to forecast student risks based on academic patterns.</p></div>', unsafe_allow_html=True)
             with c2: st.markdown('<div class="feature-card"><h3>📡 Smart Intervention</h3><p>Automated notification gateway enabling mentors to communicate instantly with guardians.</p></div>', unsafe_allow_html=True)
@@ -153,18 +162,20 @@ def main():
             st.sidebar.divider()
             st.sidebar.subheader("📊 Update Student Records")
             
-            # --- UPDATED: HEADERS ONLY TEMPLATE ---
             original_data = load_data()
-            # Creating a blank dataframe with same columns
-            empty_template = pd.DataFrame(columns=original_data.columns)
+            # Headers + Learner Category for clarity
+            template_cols = list(original_data.columns)
+            if 'Learner_Category' not in template_cols:
+                template_cols.append('Learner_Category')
+            
+            empty_template = pd.DataFrame(columns=template_cols)
             csv_template = empty_template.to_csv(index=False).encode('utf-8')
             
             st.sidebar.download_button(
                 label="📥 Download CSV Template",
                 data=csv_template,
                 file_name="student_data_template.csv",
-                mime="text/csv",
-                help="Download this template with correct headers."
+                mime="text/csv"
             )
             
             uploaded_file = st.sidebar.file_uploader("Upload Filled Template", type=['csv'])
@@ -175,12 +186,12 @@ def main():
                         st.session_state['custom_df'] = temp_df
                         st.sidebar.success("New Dataset Loaded!")
                     else:
-                        st.sidebar.error("Error: 'Risk_Level' column missing. Use provided template.")
+                        st.sidebar.error("Error: 'Risk_Level' column missing.")
                 except Exception as e:
                     st.sidebar.error(f"Format Error: {e}")
 
             if st.session_state['custom_df'] is not None:
-                if st.sidebar.button("🗑️ Reset to Original"):
+                if st.sidebar.button(" Reset to Original"):
                     st.session_state['custom_df'] = None
                     st.rerun()
 
@@ -191,6 +202,9 @@ def main():
             df = st.session_state['custom_df'] if st.session_state['custom_df'] is not None else load_data()
             (model, metadata) = load_assets()
             feature_cols = metadata['features']
+
+            # Applying your specific range logic
+            df['Learner_Category'] = df['Total_%'].apply(get_learner_category)
 
             if user_role == "Admin":
                 st.title("🛡️ Institutional Admin Control")
@@ -208,7 +222,7 @@ def main():
                     st.divider()
                     col_del1, col_del2 = st.columns([3, 1])
                     user_to_del = col_del1.selectbox("Choose account to remove", [u[0] for u in all_users if u[0] != st.session_state['username']])
-                    if col_del2.button("🚫 Confirm Delete", type="secondary"):
+                    if col_del2.button(" Confirm Delete", type="secondary"):
                         delete_user(user_to_del); st.success(f"User {user_to_del} removed."); time.sleep(1); st.rerun()
                 with tab2:
                     st.subheader("System Role Distribution")
@@ -232,10 +246,11 @@ def main():
                 c1, c2 = st.columns([1, 2])
                 risk_f = c1.multiselect("Filter Risk Category", ['Low', 'Medium', 'High'], default=['High', 'Medium'])
                 search_n = c2.text_input("Search (Name or Roll Number)")
+                
                 filtered_df = df.copy() if not risk_f else df[df['Risk_Level'].isin(risk_f)]
                 if search_n: filtered_df = filtered_df[filtered_df['Student Name'].str.contains(search_n, case=False) | filtered_df['Rollno'].astype(str).str.contains(search_n)]
                 
-                display_df = filtered_df[['Rollno', 'Student Name', 'Total_%', 'Risk_Level']].copy()
+                display_df = filtered_df[['Rollno', 'Student Name', 'Total_%', 'Risk_Level', 'Learner_Category']].copy()
                 display_df.insert(0, 'S.No', range(1, 1 + len(display_df)))
                 st.dataframe(display_df, use_container_width=True, hide_index=True)
                 
@@ -246,6 +261,7 @@ def main():
                     sub_data = {col.split('_')[0]: s_row[col] for col in feature_cols if col in s_row}
                     info_col.plotly_chart(px.bar(x=list(sub_data.keys()), y=list(sub_data.values()), title=f"Subject-wise Scores: {selected}", color_discrete_sequence=['#004a99']), use_container_width=True)
                     action_col.markdown("### Communication Portal")
+                    action_col.info(f"Current Status: **{s_row['Learner_Category']}**")
                     if action_col.button("📧 Send Warning Alert"): send_notification(selected, s_row['Risk_Level'])
 
             elif user_role == "Student":
@@ -277,7 +293,7 @@ def main():
                         st.subheader("💡 Personalized Academic Focus")
                         low_subjects = [subj for subj, score in personal_scores.items() if score < 60]
                         if low_subjects: st.warning(f"**Study Suggestion:** Your score is a bit low in {', '.join(low_subjects)}. Prioritize these subjects to improve your overall GPA.")
-                        else: st.success("**Great Job!** You've scored above 60 in all subjects. Keep up the consistent performance!")
+                        else: st.success("👏**Great Job!** You've scored above 60 in all subjects. Keep up the consistent performance!")
                 else: st.warning("Profile not found. Please contact Admin if your roll number is correct.")
         except Exception as e: st.error(f"Error: {e}")
 
