@@ -128,7 +128,7 @@ def main():
             with c3: st.markdown('<div class="feature-card"><h3>📊 Deep Analytics</h3><p>High-fidelity dashboards providing real-time visibility into cohort-level progress.</p></div>', unsafe_allow_html=True)
             st.divider()
             st.info("💡 **Getting Started:** Select 'Login / Register' from the sidebar to access the secure portal.")
-            st.markdown(f'<div class="team-footer"><span class="team-badge">Developed By: Digital Architects</span><div style="margin-top:15px; font-size:1.2rem;"><b>Dev Dagar (Lead)</b> • Shubhi Tyagi • Aryan Sharma • Dev Sood</div></div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="team-footer"><span class="team-badge">Developed By: Digital Architects</span><div style="margin-top:15px; font-size:1.2rem;"><b style="color: #004a99; border-bottom: 2px solid #004a99; padding-bottom: 2px;">Dev (Team Lead)</b> • Shubhi Tyagi • Aryan Sharma • Dev Sood</div></div>', unsafe_allow_html=True)
         elif app_mode == "Login / Register":
             st.title("System Authentication")
             choice = st.segmented_control("Select Action", ["Login", "Register"], default="Login")
