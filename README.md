@@ -80,6 +80,7 @@ Student-Performance-System/
 <p align="center">
 Developed with ❤️ by <b>Team Digital Architects</b> for Major Project 2026
 </p>
+
 ## 👥 Team Members
 
 <div align="center">
