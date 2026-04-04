@@ -85,7 +85,7 @@ Developed with ❤️ by <b>Team Digital Architects</b> for Major Project 2026
 
 <div align="center">
 
-| Role | Nam | University Roll No. |
+| Role | Name | University Roll No. |
 |------|------|--------------------|
 |  Team Lead | Dev Dagar | 2301730073 |
 |  Member | Shubhi Tyagi | 2301730132 |
