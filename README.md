@@ -80,19 +80,15 @@ Student-Performance-System/
 <p align="center">
 Developed with ❤️ by <b>Team Digital Architects</b> for Major Project 2026
 </p>
+## 👥 Team Members
 
-<p align="center">
-<b>Team Members:</b>
+<div align="center">
 
+| Role | Name | University Roll No. |
+|------|------|--------------------|
+| 👑 Team Lead | Dev Dagar | 2301730073 |
+| 👩‍💻 Member | Shubhi Tyagi | 2301730132 |
+| 👨‍💻 Member | Aryan Sharma | 2301730119 |
+| 👨‍💻 Member | Dev Sood | 2301730121 |
 
-👤 <b>Dev Dagar</b> (Team Lead) - [Roll No.: 2301730073]
-
-
-👤 <b>Shubhi Tyagi</b> - [Roll No.: 2301730132]
-
-
-👤 <b>Aryan Sharma</b> - [Roll No.: 2301730119]
-
-
-👤 <b>Dev Sood</b> - [Roll No.: 2301730121]
-</p>
+</div>
