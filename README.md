@@ -61,7 +61,7 @@ Student-Performance-System/
 
 ## 🚀 Getting Started
 
-1. Clone the Repo: git clone [https://github.com/Dagar214/-Digital-Architects.git](https://github.com/Dagar214/-Digital-Architects.git)
+1. Clone the Repo: git clone [https://github.com/Dagar214/-Digital-Architects)
 
 2. Install Dependencies: pip install -r requirements.txt
 
