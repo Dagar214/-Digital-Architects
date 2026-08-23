@@ -17,6 +17,17 @@ def create_usertable():
     conn.commit()
     conn.close()
 
+def seed_demo_accounts():
+    """Pre-creates read-to-try demo accounts so visitors without the real
+    Mentor/Admin verification keys can still explore every role."""
+    demo_accounts = [
+        ("demo_student", "Demo@123", "Student", "2401010005"),
+        ("demo_mentor", "Demo@123", "Mentor", ""),
+        ("demo_admin", "Demo@123", "Admin", ""),
+    ]
+    for username, password, role, roll_no in demo_accounts:
+        add_userdata(username, make_hashes(password), role, roll_no)
+
 def add_userdata(username, password, role, roll_no=""):
     try:
         conn = sqlite3.connect('users.db')
@@ -96,6 +107,7 @@ LOGO_URI = f"data:image/svg+xml;base64,{LOGO_B64}"
 def main():
     st.set_page_config(page_title="AI-Based Student Performance Prediction & Early Warning System | Performance Dashboard", layout="wide")
     create_usertable()
+    seed_demo_accounts()
 
     st.markdown(f"""
         <style>
@@ -230,10 +242,19 @@ def main():
             st.markdown(f'''<div class="team-footer">
                 <img src="{LOGO_URI}" style="width:46px; height:46px; margin-bottom:10px;"/><br/>
                 <span class="team-badge">Developed By: Digital Architects</span>
-                <div style="margin-top:15px; font-size:1.2rem;"><b style="color: #004a99; border-bottom: 2px solid #004a99; padding-bottom: 2px;">Dev (Team Lead)</b> • Shubhi Tyagi • Aryan Sharma • Dev Sood</div>
+                <div style="margin-top:15px; font-size:1.2rem;"><a href="https://www.linkedin.com/in/dev-dagar-0a3b81307" target="_blank" style="color: #004a99; border-bottom: 2px solid #004a99; padding-bottom: 2px; text-decoration: none; font-weight: bold;">Dev (Team Lead)</a> • Shubhi Tyagi • Aryan Sharma • Dev Sood</div>
                 </div>''', unsafe_allow_html=True)
         elif app_mode == "Login / Register":
             st.title("System Authentication")
+            with st.expander("🔑 New here? Try a demo account (no verification key needed)"):
+                st.markdown("""
+                    Use any of these to explore the full app right away:
+                    | Role | Username | Password |
+                    |---|---|---|
+                    | Student | `demo_student` | `Demo@123` |
+                    | Mentor | `demo_mentor` | `Demo@123` |
+                    | Admin | `demo_admin` | `Demo@123` |
+                    """)
             choice = st.segmented_control("Select Action", ["Login", "Register"], default="Login")
             if choice == "Login":
                 user, pswd = st.text_input("Username"), st.text_input("Password", type='password')
