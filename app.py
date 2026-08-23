@@ -99,113 +99,11 @@ def main():
 
     st.markdown(f"""
         <style>
-        @keyframes fadeSlideUp {{
-            from {{ opacity: 0; transform: translateY(16px); }}
-            to {{ opacity: 1; transform: translateY(0); }}
-        }}
-        @keyframes sealFloat {{
-            0%, 100% {{ transform: translateY(0) rotate(0deg); }}
-            50% {{ transform: translateY(-10px) rotate(3deg); }}
-        }}
-        @keyframes pulseDot {{
-            0% {{ box-shadow: 0 0 0 0 rgba(46, 204, 64, 0.6); }}
-            70% {{ box-shadow: 0 0 0 10px rgba(46, 204, 64, 0); }}
-            100% {{ box-shadow: 0 0 0 0 rgba(46, 204, 64, 0); }}
-        }}
-
-        /* Institutional seal watermark + soft shadow depth across the entire app */
-        .main {{
-            background-color: #f4f6fa;
-            background-image:
-                url("{LOGO_URI}"),
-                radial-gradient(circle at 12% 8%, rgba(0, 74, 153, 0.16) 0%, transparent 40%),
-                radial-gradient(circle at 88% 15%, rgba(201, 162, 39, 0.14) 0%, transparent 38%),
-                radial-gradient(circle at 20% 92%, rgba(201, 162, 39, 0.10) 0%, transparent 35%),
-                radial-gradient(circle at 95% 88%, rgba(0, 43, 92, 0.18) 0%, transparent 42%);
-            background-repeat: repeat, no-repeat, no-repeat, no-repeat, no-repeat;
-            background-size: 170px 170px, 60% 60%, 55% 55%, 50% 50%, 60% 60%;
-            background-position: center, 0% 0%, 100% 0%, 0% 100%, 100% 100%;
-            background-attachment: fixed, fixed, fixed, fixed, fixed;
-            position: relative;
-        }}
-        .main::before {{
-            content: "";
-            position: fixed;
-            inset: 0;
-            background-color: rgba(255, 255, 255, 0.86);
-            pointer-events: none;
-            z-index: 0;
-        }}
-        .main .block-container {{ position: relative; z-index: 1; }}
-
-        /* Give white content blocks their own lift so they read as cards floating above the depth */
-        div[data-testid="stVerticalBlockBorderWrapper"],
-        div[data-testid="stDataFrame"],
-        .feature-card, .hero-section, .team-footer {{
-            box-shadow: 0 10px 30px rgba(0, 43, 92, 0.10);
-        }}
-
-        .stButton>button {{
-            width: 100%; border-radius: 6px; background-color: #004a99; color: white; border: none;
-            height: 3em; font-weight: 600; transition: all 0.25s ease; letter-spacing: 0.2px;
-        }}
-        .stButton>button:hover {{
-            background-color: #003a7a; transform: translateY(-2px);
-            box-shadow: 0 6px 14px rgba(0, 74, 153, 0.35);
-        }}
-        .stButton>button:active {{ transform: translateY(0px); }}
-
-        .hero-section {{
-            background: linear-gradient(135deg, #002b5c 0%, #004a99 60%, #0a5cb8 100%);
-            padding: 70px 40px; border-radius: 14px; color: white; text-align: center; margin-bottom: 40px;
-            position: relative; overflow: hidden;
-            animation: fadeSlideUp 0.7s ease-out;
-            box-shadow: 0 20px 45px rgba(0, 43, 92, 0.35);
-        }}
-        .hero-seal {{
-            position: absolute; top: -30px; right: -20px; width: 190px; height: 190px;
-            opacity: 0.16; animation: sealFloat 7s ease-in-out infinite;
-        }}
-        .hero-section h1 {{ font-size: 2.9rem; font-weight: 800; margin-bottom: 10px; color: white; position: relative; }}
-        .hero-section p {{ position: relative; font-size: 1.05rem; opacity: 0.92; }}
-        .live-badge {{
-            display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.12);
-            padding: 6px 16px; border-radius: 20px; font-size: 0.8rem; margin-top: 18px; position: relative;
-        }}
-        .live-dot {{
-            width: 8px; height: 8px; border-radius: 50%; background: #2ECC40; animation: pulseDot 2s infinite;
-        }}
-
-        .feature-card {{
-            background-color: #f8f9fa; padding: 30px; border-radius: 12px; border-top: 5px solid #004a99;
-            height: 250px; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            animation: fadeSlideUp 0.7s ease-out;
-        }}
-        .feature-card:hover {{
-            transform: translateY(-8px); box-shadow: 0 16px 30px rgba(0, 74, 153, 0.18);
-            border-top-color: #c9a227;
-        }}
-
-        .team-footer {{
-            background-color: #f1f4f9; padding: 25px; border-radius: 12px;
-            border: 1px solid #d0d7de; margin-top: 50px; text-align: center;
-        }}
-        .team-badge {{ background-color: #004a99; color: white; padding: 5px 15px; border-radius: 20px; }}
-        .sidebar-user {{
-            padding: 10px; background-color: #f0f2f6; border-radius: 5px; border-left: 5px solid #004a99;
-            transition: border-left-color 0.3s ease;
-        }}
-        .sidebar-user:hover {{ border-left-color: #c9a227; }}
-
-        div[data-testid="stMetric"] {{
-            background: #f8f9fa; border-radius: 10px; padding: 14px 10px; border: 1px solid #e8ecf1;
-            transition: all 0.25s ease;
-        }}
-        div[data-testid="stMetric"]:hover {{
-            box-shadow: 0 8px 18px rgba(0,74,153,0.12); transform: translateY(-3px); border-color: #c9a227;
-        }}
-
-        #stDecoration {{ display:none !important; }}
+        .main { background-color: #ffffff; }
+        .stButton>button { width: 100%; border-radius: 4px; background-color: #004a99; color: white; border: none; height: 3em; }
+        .stMetric { border: 1px solid #e6e6e6; padding: 15px; border-radius: 5px; background-color: #f9f9f9; }
+        .hero-section { background-color: #002b5c; padding: 40px; border-radius: 8px; color: white; text-align: left; margin-bottom: 25px; }
+        .sidebar-user { padding: 10px; background-color: #f0f2f6; border-radius: 5px; margin-bottom: 20px; border-left: 5px solid #004a99; }
         </style>
         """, unsafe_allow_html=True)
 
@@ -215,23 +113,14 @@ def main():
     if not st.session_state['logged_in']:
         app_mode = st.sidebar.radio("Navigation", ["Project Overview", "Login / Register"])
         if app_mode == "Project Overview":
-            st.markdown(f'''<div class="hero-section">
-                <img src="{LOGO_URI}" class="hero-seal"/>
-                <h1>🎓 AI-Based Student Performance Prediction & Early Warning System</h1>
-                <p>Empowering Educators with Predictive Intelligence & Early Intervention Systems</p>
-                <div class="live-badge"><span class="live-dot"></span> System Online &nbsp;·&nbsp; Model: Random Forest</div>
-                </div>''', unsafe_allow_html=True)
+            st.markdown('<div class="hero-section"><h1>AI-Based Student Performance Prediction & Early Warning System</h1><p><b>PHASE 1: Core Analytical Framework</b></p></div>', unsafe_allow_html=True)
             c1, c2, c3 = st.columns(3)
             with c1: st.markdown('<div class="feature-card"><h3>🧠 Predictive Analytics</h3><p>Leveraging <b>Random Forest ML</b> to forecast student risks based on academic patterns.</p></div>', unsafe_allow_html=True)
             with c2: st.markdown('<div class="feature-card"><h3>📡 Smart Intervention</h3><p>Automated notification gateway enabling mentors to communicate instantly with guardians.</p></div>', unsafe_allow_html=True)
             with c3: st.markdown('<div class="feature-card"><h3>📊 Deep Analytics</h3><p>High-fidelity dashboards providing real-time visibility into cohort-level progress.</p></div>', unsafe_allow_html=True)
             st.divider()
-            st.info("💡 **Getting Started:** Select 'Login / Register' from the sidebar to access the secure portal.")
-            st.markdown(f'''<div class="team-footer">
-                <img src="{LOGO_URI}" style="width:46px; height:46px; margin-bottom:10px;"/><br/>
-                <span class="team-badge">Developed By: Digital Architects</span>
-                <div style="margin-top:15px; font-size:1.2rem;"><b style="color: #004a99; border-bottom: 2px solid #004a99; padding-bottom: 2px;">Dev (Team Lead)</b> • Shubhi Tyagi • Aryan Sharma • Dev Sood</div>
-                </div>''', unsafe_allow_html=True)
+            st.info(" Login to access Phase 1 Dashboards.")
+
         elif app_mode == "Login / Register":
             st.title("System Authentication")
             choice = st.segmented_control("Select Action", ["Login", "Register"], default="Login")
@@ -258,55 +147,13 @@ def main():
     else:
         # --- LOGGED IN UI ---
         st.sidebar.title("Navigation")
-        user_role, user_name, user_roll = st.session_state['role'], st.session_state['username'], st.session_state['roll_no']
-        st.sidebar.markdown(f'''<div class="sidebar-user">
-            <img src="{LOGO_URI}" style="width:24px; height:24px; vertical-align:middle; margin-right:6px;"/>
-            <strong>{user_role.upper()}</strong><br>{user_name}{f"<br>Roll: {user_roll}" if user_role == "Student" else ""}
-            </div>''', unsafe_allow_html=True)
+        st.sidebar.markdown(f"**User:** {st.session_state['username']}\n\n**Role:** {st.session_state['role']}")
+        st.sidebar.button("Sign Out", on_click=lambda: st.session_state.update({"logged_in": False}))
         
-        if user_role in ["Admin", "Mentor"]:
-            st.sidebar.divider()
-            st.sidebar.subheader("📊 Update Student Records")
-            
-            original_data = load_data()
-            # Headers + Learner Category for clarity
-            template_cols = list(original_data.columns)
-            if 'Learner_Category' not in template_cols:
-                template_cols.append('Learner_Category')
-            
-            empty_template = pd.DataFrame(columns=template_cols)
-            csv_template = empty_template.to_csv(index=False).encode('utf-8')
-            
-            st.sidebar.download_button(
-                label="📥 Download CSV Template",
-                data=csv_template,
-                file_name="student_data_template.csv",
-                mime="text/csv"
-            )
-            
-            uploaded_file = st.sidebar.file_uploader("Upload Filled Template", type=['csv'])
-            if uploaded_file is not None:
-                try:
-                    temp_df = pd.read_csv(uploaded_file)
-                    if 'Risk_Level' in temp_df.columns:
-                        st.session_state['custom_df'] = temp_df
-                        st.sidebar.success("New Dataset Loaded!")
-                    else:
-                        st.sidebar.error("Error: 'Risk_Level' column missing.")
-                except Exception as e:
-                    st.sidebar.error(f"Format Error: {e}")
-
-            if st.session_state['custom_df'] is not None:
-                if st.sidebar.button(" Reset to Original"):
-                    st.session_state['custom_df'] = None
-                    st.rerun()
-
-        st.sidebar.divider()
-        st.sidebar.button("Sign Out", on_click=lambda: st.session_state.update({"logged_in": False, "custom_df": None}))
+        role = st.session_state['role']
         
         try:
-            df = st.session_state['custom_df'] if st.session_state['custom_df'] is not None else load_data()
-            (model, metadata) = load_assets()
+            df, (model, metadata) = load_data(), load_assets()
             feature_cols = metadata['features']
 
             # Applying your specific range logic
@@ -403,4 +250,10 @@ def main():
                 else: st.warning("Profile not found. Please contact Admin if your roll number is correct.")
         except Exception as e: st.error(f"Error: {e}")
 
-if __name__ == '__main__': main()
+if __name__ == '__main__':
+    main()
+
+
+
+
+

@@ -2,11 +2,7 @@
 Our team name is Digital Architects and we are going to design a Major Project.
 
 <p align="center">
-<<<<<<< HEAD
-  <h1 align="center">🎓Student Performance Prediction & Early Warning System</h1>
-=======
-  <h1 align="center">🎓 Student Performance Prediction & Early Warning System</h1>
->>>>>>> 955c063 (Updated README layout and table)
+  <h1 align="center">🎓 AI-Scholar: Student Performance Prediction & Early Warning System</h1>
   <p align="center">
     <strong>An Intelligent ML-powered system to identify at-risk students and provide actionable academic insights.</strong>
   </p>
@@ -51,20 +47,20 @@ Student-Performance-System/
 ├── users.db                 # 🗄️ Local SQLite database for credentials
 ├── .gitignore               # 🚫 Files to be ignored by Git (venv, pycache)
 └── README.md                # 📝 Project Documentation
-```
 
-## 🛠️ Tech Stack
 
-| Component | Technology |
-|-----------|------------|
-| **Language** | Python 3.11 |
-| **ML Libraries** | Scikit-learn (Random Forest), Pandas, NumPy |
-| **Web Framework** | Streamlit |
-| **Visualization** | Plotly & Seaborn |
-| **Database** | SQLite3 |
+🛠️ Tech Stack
+Language: Python 3.11
 
-## 🚀 Getting Started
+1.ML Libraries: Scikit-learn (Random Forest), Pandas, NumPy
 
+2.Web Framework: Streamlit (For a fast, interactive UI)
+
+3.Visualization: Plotly & Seaborn (For professional charts)
+
+4.Database: SQLite3 (For user management and role-based access)
+
+🚀 Getting Started
 1. Clone the Repo: git clone [https://github.com/Dagar214/-Digital-Architects.git](https://github.com/Dagar214/-Digital-Architects.git)
 
 2. Install Dependencies: pip install -r requirements.txt
@@ -79,14 +75,12 @@ Student-Performance-System/
 
 3. Classification: Output is generated as a 'Warning Level' (Low, Medium, High).
 
-4. Actionable Insights: Mentors see a list of students who need immediate attention
+4.Actionable Insights: Mentors see a list of students who need immediate attention.
 
----
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Developed%20with%20❤️%20by-Team%20Digital%20Architects-orange?style=for-the-badge" alt="Team Digital Architects"/>
-  <br>
-  <sub><b>Major Project 2026 • AI-Scholar System</b></sub>
+  <img src="https://img.shields.io/badge/Status-Completed-success?style=flat-square" />
+  <img src="https://img.shields.io/badge/Contributions-Welcome-blue?style=flat-square" />
 </p>
 
 ## 👥 Team Members
@@ -95,14 +89,9 @@ Student-Performance-System/
 
 | Role | Name | University Roll No. |
 |------|------|--------------------|
-| 👑 Team Lead | Dev Dagar | 2301730073 |
-| 👩‍💻 Member | Shubhi Tyagi | 2301730132 |
-| 👨‍💻 Member | Aryan Sharma | 2301730119 |
-| 👨‍💻 Member | Dev Sood | 2301730121 |
+|  Team Lead | Dev Dagar | 2301730073 |
+|  Member | Shubhi Tyagi | 2301730132 |
+|  Member | Aryan Sharma | 2301730119 |
+|  Member | Dev Sood | 2301730121 |
 
 </div>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Status-Completed-success?style=flat-square" />
-  <img src="https://img.shields.io/badge/Contributions-Welcome-blue?style=flat-square" />
-</p>
