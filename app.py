@@ -213,6 +213,17 @@ def main():
             border: 1px solid #d0d7de; margin-top: 50px; text-align: center;
         }}
         .team-badge {{ background-color: #004a99; color: white; padding: 5px 15px; border-radius: 20px; }}
+
+        .site-footer {{
+            margin-top: 20px; padding: 18px 30px; border-radius: 12px;
+            background-color: #002b5c; text-align: center;
+        }}
+        .site-footer a {{
+            color: #e8eef7; text-decoration: none; font-size: 0.92rem; font-weight: 500;
+            margin: 0 22px; transition: color 0.2s ease;
+        }}
+        .site-footer a:hover {{ color: #c9a227; }}
+        .site-footer .divider-dot {{ color: #4a6a94; }}
         .sidebar-user {{
             padding: 10px; background-color: #f0f2f6; border-radius: 5px; border-left: 5px solid #004a99;
             transition: border-left-color 0.3s ease;
@@ -253,11 +264,11 @@ def main():
                 <img src="{LOGO_URI}" style="width:46px; height:46px; margin-bottom:10px;"/><br/>
                 <span class="team-badge">Developed By: Digital Architects</span>
                 <div style="margin-top:15px; font-size:1.2rem;"><a href="https://www.linkedin.com/in/dev-dagar-0a3b81307" target="_blank" style="color: #004a99; border-bottom: 2px solid #004a99; padding-bottom: 2px; text-decoration: none; font-weight: bold;">Dev (Team Lead)</a> • Shubhi Tyagi • Aryan Sharma • Dev Sood</div>
-                <div style="margin-top:18px; font-size:0.95rem;">
-                    <a href="https://www.linkedin.com/in/dev-dagar-0a3b81307" target="_blank" style="color:#004a99; text-decoration:none; margin:0 12px;">💬 Support</a>
-                    |
-                    <a href="https://github.com/Dagar214/-Digital-Architects" target="_blank" style="color:#004a99; text-decoration:none; margin:0 12px;">🐙 View Source / Report an Issue</a>
-                </div>
+                </div>''', unsafe_allow_html=True)
+            st.markdown(f'''<div class="site-footer">
+                <a href="https://www.linkedin.com/in/dev-dagar-0a3b81307" target="_blank">💬 Support</a>
+                <span class="divider-dot">|</span>
+                <a href="https://github.com/Dagar214/-Digital-Architects" target="_blank">🐙 View Source / Report an Issue</a>
                 </div>''', unsafe_allow_html=True)
             with st.expander("❓ Help & FAQ"):
                 st.markdown("""
