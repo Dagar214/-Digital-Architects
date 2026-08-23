@@ -253,7 +253,30 @@ def main():
                 <img src="{LOGO_URI}" style="width:46px; height:46px; margin-bottom:10px;"/><br/>
                 <span class="team-badge">Developed By: Digital Architects</span>
                 <div style="margin-top:15px; font-size:1.2rem;"><a href="https://www.linkedin.com/in/dev-dagar-0a3b81307" target="_blank" style="color: #004a99; border-bottom: 2px solid #004a99; padding-bottom: 2px; text-decoration: none; font-weight: bold;">Dev (Team Lead)</a> • Shubhi Tyagi • Aryan Sharma • Dev Sood</div>
+                <div style="margin-top:18px; font-size:0.95rem;">
+                    <a href="https://www.linkedin.com/in/dev-dagar-0a3b81307" target="_blank" style="color:#004a99; text-decoration:none; margin:0 12px;">💬 Support</a>
+                    |
+                    <a href="https://github.com/Dagar214/-Digital-Architects" target="_blank" style="color:#004a99; text-decoration:none; margin:0 12px;">🐙 View Source / Report an Issue</a>
+                </div>
                 </div>''', unsafe_allow_html=True)
+            with st.expander("❓ Help & FAQ"):
+                st.markdown("""
+                    **How do I get access without a verification key?**
+                    Use one of the demo accounts shown on the Login / Register page — no key required.
+
+                    **How do I register as a Mentor or Admin?**
+                    You'll need a verification key. Reach out via the Support link above to request one.
+
+                    **My student dashboard shows no data — why?**
+                    Your registered University Roll Number must exactly match a roll number already present
+                    in the system's dataset. Double-check it's entered correctly.
+
+                    **I forgot my password / need my account fixed.**
+                    There's no self-service reset yet — message the developer via the Support link above.
+
+                    **Found a bug or have a feature idea?**
+                    Open an issue on the GitHub repo linked above, or reach out on LinkedIn.
+                    """)
         elif app_mode == "Login / Register":
             st.title("System Authentication")
             with st.expander("🔑 New here? Try a demo account (no verification key needed)"):
