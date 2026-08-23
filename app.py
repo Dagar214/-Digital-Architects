@@ -15,6 +15,13 @@ def create_usertable():
     c = conn.cursor()
     c.execute('CREATE TABLE IF NOT EXISTS userstable(username TEXT PRIMARY KEY, password TEXT, role TEXT, roll_no TEXT)')
     conn.commit()
+    # Defensive migration: if an older/stale users.db exists without the
+    # roll_no column, add it instead of losing existing user data.
+    c.execute("PRAGMA table_info(userstable)")
+    existing_columns = [row[1] for row in c.fetchall()]
+    if 'roll_no' not in existing_columns:
+        c.execute('ALTER TABLE userstable ADD COLUMN roll_no TEXT')
+        conn.commit()
     conn.close()
 
 def seed_demo_accounts():
@@ -26,7 +33,10 @@ def seed_demo_accounts():
         ("demo_admin", "Demo@123", "Admin", ""),
     ]
     for username, password, role, roll_no in demo_accounts:
-        add_userdata(username, make_hashes(password), role, roll_no)
+        try:
+            add_userdata(username, make_hashes(password), role, roll_no)
+        except sqlite3.OperationalError:
+            pass  # schema already handled by create_usertable(); skip on any residual mismatch
 
 def add_userdata(username, password, role, roll_no=""):
     try:
